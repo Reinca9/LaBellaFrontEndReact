@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Avenir+Next:wght@700&display=swap');
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +6,536 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.navbar{
+  display: flex;
+  justify-content: space-between;
+
+  background-color: rgb(192, 10, 39);
+  height: 60px;
+  padding-top: 2%;
+  
+}
+.navbar div {
+  margin-left: 2%;
+  align-items: center;
+}
+
+
+.phoneAndNumber{
+  display: flex;
+  color: white;
+  margin-top: -2%;
+  font-weight: lighter;
+  margin-right: 6%;
+  width: 20%;
+ 
+}
+.phoneAndNumber i{
+  font-size: 200%;
+  margin-right: 4%;
+ 
+}
+.laBellaLogo{
+  margin-top: -1%;
+}
+.phoneAndNumber p{
+  font-size: 110%;
+  font-weight: bold;
+  margin-left: 1%;
+}
+
+.searchIconDiv i {
+  font-size: 24px;
+  color: white;
+  display: inline-flex; 
+  justify-content: center; 
+  align-items: center; 
+  border: white solid 4px;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+.searchIconDiv i:hover{
+  color: rgb(43, 189, 43);
+  border: rgb(43, 189, 43) solid 4px;
+}
+
+.searchIconDiv{
+  font-size: 130%;
+  color: white;
+  margin-right: 5%;
+  margin-top: -1%;
+}
+.link-style {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 110%;
+  padding: 5px;
+  border: 2px solid transparent;
+}
+.link-style:hover {
+  background-color: rgb(43, 189, 43);
+  border-color: rgb(43, 189, 43);
+  border-radius:50px;
+}
+.veggiePizza{
+  width: 100%;
+}
+.HomeBodyMain h1{
+color: white;
+font-size: 700%;
+display: flex;
+position: absolute;
+margin-top: -45%;
+margin-left: 30%;
+height: 400px;
+font-family: 'Avenir Next',sans-serif;
+font-weight: 900;
+}
+.HomeBodyMain h2{
+  width: 55%;
+  color: white;
+  font-size: 300%;
+  background: rgb(255, 174, 0);
+  border-radius:50px;
+  justify-content: center;
+  position: absolute;
+  margin-top: -32%;
+  margin-left: 22.5%;
+  font-family: 'Avenir Next',sans-serif;
+  font-weight: 900;
+  padding-left: 2%;
+  }
+  .mainBodyPromo{
+    display: flex;
+    justify-content: space-between;
+    margin-top: -1%;
+    position: relative;
+    z-index: 5;
+
+  }
+  .MainPromo1{
+    background-color: rgb(0, 161, 73);
+    width: 50%;
+    justify-content: left;
+    align-items: left;
+    padding-left: 5%;
+    height: 580px;
+    z-index: 1;
+    
+  }
+  .MainPromo1 h2{
+    color: white;
+    margin-left: 25%;
+    font-family: 'Avenir Next',sans-serif;
+    font-size: 300%;
+    font-weight: lighter;
+  }
+  .MainPromo1 h1{
+   color: white;
+   font-size:400%;
+   font-family: 'Avenir Next',sans-serif;
+   font-weight: 800;
+  }
+  .promo1Text{
+    color: white;
+    margin-bottom: 1%;
+    font-size: 150%;
+
+  }
+  
+  .MainPromo1 button{
+   background-color: white;
+   justify-content: center;
+   align-items: center;
+   border-radius: 50px;
+   border: none;
+   font-size: 100%;
+   padding: 20px;
+   font-weight: bold;
+   width: 40%;
+   z-index: 2;
+   position: relative;
+  }
+  .promo1Price{
+    color: yellow;
+    font-size: 200%;
+    font-weight: bold;
+  }
+  .mainBodyPromo img{
+    position: absolute;
+    width: 700px;
+    height: 235px;
+    margin-left: -7%;
+    margin-top: -2%;
+    z-index: 1;
+  }
+  .MainPromo2{
+    background-color: rgb(192, 10, 39);
+    
+    width: 50%;
+    justify-content: left;
+    align-items: left;
+    padding-left: 5%;
+    height: 580px;
+    z-index: 1;
+  }
+  .MainPromo2 h2{
+    color: white;
+    margin-left: 25%;
+    font-family: 'Avenir Next',sans-serif;
+    font-size: 300%;
+    font-weight: lighter;
+  }
+  .MainPromo2 h1{
+    color: white;
+    font-size:400%;
+    font-family: 'Avenir Next',sans-serif;
+    font-weight: 800;
+  }
+  .troisPizzaMaxi{
+    color: white;
+    margin-bottom: 1%;
+    font-size: 150%;
+
+  }
+  .laTroisieme{
+    color: yellow;
+    font-size: 200%;
+    font-weight: bold;
+  }
+  .laMoinsChère{
+    color: white;
+    margin-bottom: 5%;
+    font-size: 100%;
+    margin-top: -4%;
+  }
+  .MainPromo2 button{
+   background-color: white;
+   justify-content: center;
+   align-items: center;
+   border-radius: 50px;
+   border: none;
+   font-size: 100%;
+   padding: 20px;
+   font-weight: bold;
+   width: 40%;
+   z-index: 2;
+   position: relative;
+  }
+  .MainPromo2 img{
+    position: absolute;
+    width: 478px;
+    height: 478px;
+    margin-left: 10%;
+    margin-top: -15%;
+    z-index: 0;
+  }
+  .ourPizzaMain{
+    background-color: white;
+    height:2000px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 3;
+    position: relative;
+    margin-top: 0%;
+  }
+  .ourPizzaMain h1{
+    color: rgb(192, 10, 39);
+    font-weight: bold;
+    margin-left: 40%;
+    margin-top: 5%;
+    font-size:400%;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .categoryPizza{
+    display: flex;
+    justify-content: space-around;
+    margin: 0 10% 0 10%;
+  }
+  .categoryPizzaButton{
+    border-radius: 50px;
+    width: 15%;
+    height: 60px;
+    border: none;
+    background-color: white;
+    color: white;
+    font-weight: bold;
+    font-size: 110%;
+    
+  }
+  #baseTomate{
+    background-color: rgb(192, 10, 39);
+  }
+  #baseCreme{
+    border: 4px solid rgb(241, 241, 100);
+    color: black;
+
+  }
+  #baseChocolat{
+    border: 4px solid rgb(206, 206, 206);
+    color: black;
+  }
+  .pizzaCardContainer{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10%;
+    flex-direction: row;
+    margin: 5% 10% 0 15%;
+    width: 60%;
+  }
+  .flexCardPizza{
+    display: flex;
+    flex-direction: column;
+    margin: 5% 0 0% 0;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
+    border-radius: 45px;
+    z-index: 0;
+    position: relative;
+
+  }
+  .flexRowPizzaCard{
+    display: flex;
+    flex-direction: column;
+    border-radius:  50px;
+    width: 60%;
+    margin-left: 10%;
+    z-index: 0;
+    position: relative;
+    
+  }
+  .pizzaCardImg{
+    
+    width:100%;
+    height:350px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+  }
+  .pizzaCardDescription{
+    background-color: rgb(72, 153, 72);
+    color: white;
+    margin-top: 2px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    padding: 5%;
+  }
+ .loyaltyCardMain{
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
+  border-radius: 45px;
+  width: 80%;
+  height: 400px;
+  margin: -5% 10% 0 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+
+ } 
+ .loyaltyCardMain div {
+background-image: url("./picturesFolder/loyaltyCard.webp");
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+width: 98%;
+height: 96%;
+display: flex;
+justify-content: center;
+align-items: center;
+border-radius: 50px;
+box-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
+ } 
+ 
+ .loyaltyCardMain div  h1{
+  background: rgb(72, 153, 72);
+  border-radius: 50px;
+  width: 40%;
+  font-size: 200%;
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  padding: 0.5%;
+  padding-left: 10%;
+ } 
+ .googleMapMain{
+  margin: 0 0 0 5% ;
+  border-radius: 50px;
+  height: 500px;
+  width: 100%;
+  display: flex;
+
+
+ }
+ .googleMapMainContainer{
+  border-radius: 50px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
+  width:80%;
+  margin: 1% 0 0 10%;
+
+
+ }
+ .contactMainContainer{
+  display: flex;
+  border-radius: 50px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
+  width: 76%;
+  margin: 1% 0 0 10%;
+  height: 700px;
+  padding: 2%;
+ }
+ .contactMainSecondContainer{
+  background-color: rgb(233, 233, 233);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  box-shadow: 1px 1px 1px rgba(0.2,0.2,0.2,0.2);
+  width: 98%;
+  height: 98%;
+
+ }
+ .contactMainSecondContainer h1{
+  font-size: 200%;
+  color: black;
+ }
+ .contactInput{
+  background-color: white;
+  border: rgb(0, 0, 0);
+  color: rgb(233, 233, 233);
+  width: 55%;
+  height: 30px;
+  border-radius: 50px;
+  margin-top: 1%;
+  padding: 1%;
+ }
+ .contactMainSecondContainer textarea{
+  border: rgb(233, 233, 233);
+  border-radius: 30px;
+  width: 56%;
+  margin-top: 2%;
+  height: 300px;
+ }
+ .contactMainSecondContainer button{
+  border-radius: 50px;
+  background-color: rgb(240, 240, 39);
+  color: black;
+  border: none;
+  width: 30%;
+  height: 50px;
+  font-weight: bold;
+  margin: 1% 0 0 -27%;
+ }
+ .socialsFooter{
+  background-color: rgb(46, 46, 46);
+  width: 100%;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1%;
+  position: relative;
+  z-index: 5;
+ }
+ .allLinksMain1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+ } 
+
+  .footerLinksContainer{
+  background-color: rgb(117, 117, 117);
+  color: white;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  height: 400px;
+  margin: 0% 0 0 0 ;
+  position: relative;
+  z-index: 5;
+  }
+  .allLinksMain2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .footerLinksContainer div ul p {
+    font-weight: lighter;
+   
+    }
+.footerLinksContainer div  h1 {
+  font-size: 130%;
+  
+  }
+  hr{
+    height: 1px;
+    background-color: white;
+    color: white;
+    width: 75%;
+    margin-left: 12.5%;
+  }
+  .searchBar{
+    width: 80%;
+    background-color: white;
+    color: rgb(216, 216, 216);
+    margin-left: 10%;
+    height: 30px;
+    border-radius: 50px;
+    border: none;
+    padding: 1%;
+    margin-top: 2%;
+    font-size: 200%;
+  }
+  .underNavContainer{
+    width: 100%;
+    background-color: rgb(192, 10, 39);
+    height:250px;
+    margin-top: -1%;
+  }
+  .underNavIcons{
+    height: 50px;
+    width: 50px;
+    color: white;
+  }
+  .underNavIconsContainer{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 0%;
+  }
+  .underNavIconsContainer div{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2%;
+  }
+  .bellaLogo{
+padding: 5px;
+    border: 2px solid transparent;
+  }
+  .bellaLogoLink:hover{
+    
+    .bellaLogo{
+      
+      border: 2px solid  rgb(0, 161, 73);
+      border-radius: 50px;
+
+    }
+  }
+  .carouselPizza{
+    height: 1000px;
+    width: 100%;
+  }
