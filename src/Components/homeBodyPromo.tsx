@@ -2,7 +2,11 @@ import React from "react";
 import pizzaTrad from "../picturesFolder/pizzaTrad.png";
 import freeLargePizza from "../picturesFolder/freelargepizza.png";
 
-function HomeBodyPromo() {
+interface HomeBodyPromoProps {
+  // Add any props and their types here if needed
+}
+
+const HomeBodyPromo: React.FC<HomeBodyPromoProps> = () => {
   return (
     <div className="mainBodyPromo">
       <div className="MainPromo1">

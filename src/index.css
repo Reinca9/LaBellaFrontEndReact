@@ -89,6 +89,10 @@ code {
 .veggiePizza{
   width: 100%;
 }
+.HomeBodyMain{
+margin-bottom: 1%;
+}
+
 .HomeBodyMain h1{
 color: white;
 font-size: 700%;
@@ -101,7 +105,6 @@ font-family: 'Avenir Next',sans-serif;
 font-weight: 900;
 }
 .HomeBodyMain h2{
-  width: 55%;
   color: white;
   font-size: 300%;
   background: rgb(255, 174, 0);
@@ -112,7 +115,7 @@ font-weight: 900;
   margin-left: 22.5%;
   font-family: 'Avenir Next',sans-serif;
   font-weight: 900;
-  padding-left: 2%;
+padding: 0 2% 0 2%;
   }
   .mainBodyPromo{
     display: flex;
@@ -535,7 +538,16 @@ padding: 5px;
 
     }
   }
-  .carouselPizza{
-    height: 1000px;
-    width: 100%;
-  }
+.carouselPizza{
+height: 1000px;
+width: 100%;
+}
+.HomeBodyMain .carousel div .quatreFromageh1{
+margin-left: 20%;
+
+}
+
+.HomeBodyMain .carousel div .quatreFromageh2{
+margin-left: 30%;
+
+}

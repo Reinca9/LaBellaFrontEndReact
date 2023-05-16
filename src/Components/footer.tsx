@@ -1,8 +1,9 @@
 import React from "react";
 import Socials from "../picturesFolder/socials.svg";
-function Footer() {
+
+const Footer: React.FC = () => {
   return (
-    <div class="socialsFooter">
+    <div className="socialsFooter">
       <img src={Socials} alt="" />
     </div>
   );

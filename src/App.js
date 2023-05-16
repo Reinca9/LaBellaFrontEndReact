@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from "./Pages/home.js";
-import Menu from "./Pages/lacarte.js";
-import Contact from "./Pages/contactPage.js";
+import Home from "./Pages/home.tsx";
+import Menu from "./Pages/lacarte.tsx";
+import Contact from "./Pages/contactPage.tsx";
 
 function App() {
   return (

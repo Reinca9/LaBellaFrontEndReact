@@ -1,8 +1,10 @@
+import React from "react";
 import Navbar from "../Components/navbar";
 import Contact from "../Components/contact";
 import Footer from "../Components/footer";
 import FooterLinks from "../Components/footerLinks";
-function ContactPage() {
+
+const ContactPage: React.FC = () => {
   return (
     <div>
       <Navbar />

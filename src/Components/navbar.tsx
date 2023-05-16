@@ -7,7 +7,7 @@ function Navbar() {
     <nav className="navbar">
       <div className="laBellaLogo">
         <Link className="bellaLogoLink" to="/home">
-          <img class="bellaLogo" src={bellaLogo} alt="Logo Bella" />
+          <img className="bellaLogo" src={bellaLogo} alt="Logo Bella" />
         </Link>
       </div>
       <div>
@@ -26,11 +26,11 @@ function Navbar() {
         </Link>
       </div>
       <div className="phoneAndNumber">
-        <i class="fa-solid fa-phone"> </i>
+        <i className="fa-solid fa-phone"> </i>
         <p>06 01 02 03 04</p>
       </div>
       <div className="searchIconDiv">
-        <i class="fa-solid fa-magnifying-glass"></i>
+        <i className="fa-solid fa-magnifying-glass"></i>
       </div>
     </nav>
   );
