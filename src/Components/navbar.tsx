@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import bellaLogo from "../picturesFolder/bellaLogo.png";
+import 'tailwindcss/tailwind.css';
 
 function Navbar() {
   return (

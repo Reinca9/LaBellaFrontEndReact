@@ -8,14 +8,26 @@ import GoogleMapApi from "../Components/googleMapApi";
 import Contact from "../Components/contact";
 import Footer from "../Components/footer";
 import FooterLinks from "../Components/footerLinks";
+import MenuCards from "../Components/menuCards";
+import { useState } from "react";
 
 const Home: React.FC = () => {
+  const [selectedCategory, setSelectedCategory] = useState("Tomato");
+
+  const handleCategoryClick = (category: string) => {
+    setSelectedCategory(category);
+  };
+ 
   return (
     <div>
       <Navbar />
       <Carousel />
       <HomeBodyPromo />
-      <OurPizzas />
+      <OurPizzas
+        selectedCategory={selectedCategory}
+        handleCategoryClick={handleCategoryClick}
+      />
+      <MenuCards selectedCategory={selectedCategory} />
       <LoyaltyCard />
       <GoogleMapApi />
       <Contact />
