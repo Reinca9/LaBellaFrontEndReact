@@ -10,12 +10,14 @@ import Footer from "../Components/footer";
 import FooterLinks from "../Components/footerLinks";
 import MenuCards from "../Components/menuCards";
 import { useState } from "react";
+import Pizza from "../ObjectDB/Pizza";
 
 const Home: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState("Tomato");
 
   const handleCategoryClick = (category: string) => {
     setSelectedCategory(category);
+  
   };
  
   return (

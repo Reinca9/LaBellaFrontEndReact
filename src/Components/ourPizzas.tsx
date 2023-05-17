@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import MenuCards from "../Components/menuCards";
+
 
 interface OurPizzasProps {
   selectedCategory: string;
@@ -11,19 +11,19 @@ function OurPizzas({ selectedCategory, handleCategoryClick }: OurPizzasProps): J
     if (selectedCategory === "Tomato") {
       return (
         <div className="pizzaMenu">
-          {/* Render pizza cards for Tomato category */}
+        
         </div>
       );
     } else if (selectedCategory === "Creme") {
       return (
         <div className="pizzaMenu">
-          {/* Render pizza cards for Creme category */}
+        
         </div>
       );
     } else if (selectedCategory === "Chocolat") {
       return (
         <div className="pizzaMenu">
-          {/* Render pizza cards for Chocolat category */}
+        
         </div>
       );
     }

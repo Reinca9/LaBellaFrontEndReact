@@ -6,12 +6,13 @@ import frenchFriesIcon from "../picturesFolder/navIcons/french-fries.png";
 import plasticBottleIcon from "../picturesFolder/navIcons/plastic-bottle.png";
 import tacoIcon from "../picturesFolder/navIcons/taco.png";
 import buritoIcon from "../picturesFolder/navIcons/burrito.png";
+import SearchBar from "./searchBar";
 
 function UnderNav(): JSX.Element {
   return (
     <div className="underNavContainer">
       <hr />
-      <input className="searchBar" type="text" placeholder="Rechercher" />
+      <SearchBar/>
       <div className="underNavIconsContainer">
         <div>
           <img className="underNavIcons" src={pizzaIcon} alt="" />
