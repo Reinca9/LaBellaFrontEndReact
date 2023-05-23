@@ -35,6 +35,8 @@ code {
   font-weight: lighter;
   margin-right: 6%;
   width: 20%;
+  height: 35px;
+
  
 }
 .phoneAndNumber i{
@@ -42,13 +44,18 @@ code {
   margin-right: 4%;
  
 }
+.linkPhoneAndNumber{
+  width: 100%;
+  display: flex;
+}
 .laBellaLogo{
   margin-top: -1%;
 }
-.phoneAndNumber p{
+.phoneAndNumber .linkPhoneAndNumber p{
   font-size: 110%;
   font-weight: bold;
-  margin-left: 1%;
+  margin-left: 0%;
+  width: 200%;
 }
 
 .searchIconDiv i {
@@ -73,7 +80,7 @@ code {
   margin-right: 5%;
   margin-top: -1%;
 }
-.link-style {
+.linkStyleNav {
   color: white;
   text-decoration: none;
   font-weight: bold;
@@ -81,8 +88,17 @@ code {
   padding: 5px;
   border: 2px solid transparent;
 }
-.link-style:hover {
+.linkStyleNav:hover {
   border-bottom: 3px solid rgb(43, 189, 43);
+}
+.linkStyleNavLogin{
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 110%;
+  padding: 5px;
+  border: 2px solid transparent;
+  display: flex;
 }
 .veggiePizza{
   width: 100%;
@@ -308,7 +324,8 @@ background-color: rgb(241, 241, 100);
   }
   
   .flexCardPizza {
-    flex-basis: 48%; /* Adjust the width to your liking */
+    flex-basis: 48%; 
+    border: solid green 1px;
     margin-bottom: 2%;
     border-radius: 45px;
     overflow: hidden;
@@ -569,4 +586,178 @@ margin-left: 30%;
   height: 50px;
   margin-top: -5%;
   margin-left: -30%;
+}
+.connexionLogoetText i{
+ margin-left: -30%;
+}
+.connexionLogoetText p{
+  margin-top: -5%;
+  margin-left: 5%;
+ }
+ .connexionFlexDiv{
+  display: flex;
+  flex-direction: column;
+  margin: 5% 2% 2% 20%;
+  
+ }
+ .connexionRenderDiv{
+  padding: 1%;
+  border-radius: 50px;
+  height: 500px;
+  width: 70%;
+  margin: 2% 0 2% 15%;
+  background-image: url(./picturesFolder/baseTomate1.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+ 
+ }
+ .connexionFlexDiv button{
+  border: solid 3px rgb(255, 255, 255) ;
+  border-radius: 50px;
+  width: 30%;
+  color: rgb(47, 245, 136);
+  font-size: 130%;
+  font-weight: bold;
+  margin-bottom: 5%;
+ }
+ .connexionFlexDiv button:hover{
+ border-color: rgb(0, 161, 73);
+ }
+ .connexionFlexDiv label{
+  color: white;
+  font-weight: bold;
+  font-size: 120%;
+  margin-bottom: 3%;
+ }
+ .connexionFlexDiv input{
+  border-radius: 5px;
+  height: 35px;
+  margin-bottom: 3%;
+  width: 50%;
+ }
+ .linkStyleMdpFgtn p{
+  color: rgb(255, 255, 255);
+  font-size: 120%;
+  font-weight: bold;
+  align-items: center;
+ }
+ .inscriptionRenderDiv{
+  display: flex;
+  flex-direction: column;
+ }
+ .inscriptionRenderDiv {
+  display: flex;
+  flex-direction: column;
+  background-image: url(./picturesFolder/baseTomate2.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 70%;
+  border-radius: 50px;
+  height: 600px;
+  margin: 2% 0 1% 15%;
+  padding: 2%;
+ }
+.inscriptionEmailDiv{
+  display: flex;
+  
+}
+.inscriptionFlexDiv{
+  padding: 3%;
+}
+.inscriptionEmailDiv div{
+  display: flex;
+  flex-direction: column;
+  margin-right: 10%;
+}
+.inscriptionEmailDiv div label{
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  font-size: 120%;
+  margin-bottom: 3%;
+}
+.inscriptionEmailDiv div input{
+  border-radius: 5px;
+  height: 35px;
+  margin-bottom: 3%;
+  width: 100%;
+}
+.inscriptionPwDiv{
+  display: flex;
+  
+}
+.inscriptionPwDiv div{
+  display: flex;
+  flex-direction: column;
+  margin-right: 10%;
+}
+.inscriptionPwDiv div input{
+  border-radius: 5px;
+  height: 35px;
+  margin-bottom: 3%;
+  width: 100%;
+}
+.inscriptionPwDiv div label{
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  font-size: 120%;
+  margin-bottom: 3%;
+}
+#inscriptionPwInputRepeat{
+  width: 74%;
+}
+.inscriptionNameDiv{
+  display: flex;
+}
+.inscriptionNameDiv div label {
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  font-size: 120%;
+  margin-bottom: 3%;
+ 
+}
+.inscriptionNameDiv div input {
+  border-radius: 5px;
+  height: 35px;
+  margin-bottom: 3%;
+  width: 65%;
+}
+.inscriptionPhoneDiv{
+  display: flex;
+  flex-direction: column;
+}
+.inscriptionPhoneDiv label{
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  font-size: 120%;
+  margin-bottom: 0%;  
+}
+.inscriptionPhoneDiv input{
+  border-radius: 5px;
+  height: 35px;
+  margin-bottom: 3%;
+  width: 49%;
+}
+#registerButton{
+  border: solid 3px rgb(255, 255, 255) ;
+  border-radius: 50px;
+  width: 30%;
+  color: rgb(47, 245, 136);
+  font-size: 130%;
+  font-weight: bold;
+  margin-bottom: 5%;
+
+}
+
+#registerButton:hover{
+  border-color: rgb(0, 161, 73);
+
+}
+.linkStyleAlreadyRegistered p{
+  color: rgb(255, 255, 255);
+  font-size: 120%;
+  font-weight: bold;
+  align-items: center;
 }

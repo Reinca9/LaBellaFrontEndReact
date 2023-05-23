@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import bugerIcon from "../picturesFolder/navIcons/burger.png";
 import pizzaIcon from "../picturesFolder/navIcons/pizza.png";
 import saladIcon from "../picturesFolder/navIcons/salad.png";
@@ -8,11 +8,23 @@ import tacoIcon from "../picturesFolder/navIcons/taco.png";
 import buritoIcon from "../picturesFolder/navIcons/burrito.png";
 import SearchBar from "./searchBar";
 
+interface SearchBarProps {
+  inputRef: React.RefObject<HTMLInputElement | null>;
+  onSearch: (searchValue: string) => void;
+}
+
 function UnderNav(): JSX.Element {
+  const searchInputRef = useRef<HTMLInputElement | null>(null);
+
+  const handleSearch = (searchValue: string) => {
+    // Handle the search logic here
+    console.log("Search value:", searchValue);
+  };
+
   return (
     <div className="underNavContainer">
       <hr />
-      <SearchBar/>
+    
       <div className="underNavIconsContainer">
         <div>
           <img className="underNavIcons" src={pizzaIcon} alt="" />
