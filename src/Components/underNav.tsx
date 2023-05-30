@@ -17,7 +17,7 @@ function UnderNav(): JSX.Element {
   const searchInputRef = useRef<HTMLInputElement | null>(null);
 
   const handleSearch = (searchValue: string) => {
-    // Handle the search logic here
+    
     console.log("Search value:", searchValue);
   };
 
