@@ -1,31 +1,48 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, NavigateOptions } from "react-router-dom";
 import bellaLogo from "../picturesFolder/bellaLogo.png";
 import 'tailwindcss/tailwind.css';
 import SearchBar from "./searchBar";
+import { Pizza, pizzaList } from "../ObjectDB/Pizza";
 
 function Navbar() {
-  const [showSearchComponent, setShowSearchComponent] = useState(false);
   const searchInputRef = useRef<HTMLInputElement | null>(null);
+  const [searchValue, setSearchValue] = useState("");
+  const [filteredPizzas, setFilteredPizzas] = useState<Pizza[]>([]);
+  const navigate = useNavigate();
 
   const handleSearchIconClick = () => {
-    setShowSearchComponent(true);
+    // Do nothing
   };
 
   const handleSearchBarBlur = () => {
-    setShowSearchComponent(false);
+    if (filteredPizzas.length > 0) {
+      setFilteredPizzas([]);
+    }
   };
 
   const handleSearch = (searchValue: string) => {
-    // Handle the search logic here
-    console.log("Search value:", searchValue);
+    setSearchValue(searchValue);
+    if (searchValue.trim() === "") {
+      setFilteredPizzas([]);
+    } else {
+      const filteredPizzas = pizzaList.filter((pizza) =>
+        pizza.name.toLowerCase().includes(searchValue.toLowerCase())
+      );
+      setFilteredPizzas(filteredPizzas);
+    }
   };
 
   useEffect(() => {
-    if (showSearchComponent && searchInputRef.current) {
+    if (searchInputRef.current) {
       searchInputRef.current.focus();
     }
-  }, [showSearchComponent]);
+  }, []);
+  const handlePizzaClick = (event: React.MouseEvent, pizza: Pizza) => {
+    event.stopPropagation();
+    navigate(`/details/${encodeURIComponent(pizza.name)}`, { replace: true });
+  };
+  
 
   return (
     <nav className="navbar">
@@ -51,22 +68,37 @@ function Navbar() {
       </div>
       <div className="phoneAndNumber">
         <Link className="linkPhoneAndNumber" to="/connexion">
-        <i className="fa-solid fa-phone"> </i>
-        <p>06 01 02 03 04</p>
+          <i className="fa-solid fa-phone"> </i>
+          <p>06 01 02 03 04</p>
         </Link>
       </div>
       <div className="connexionLogoetText">
-      <Link className="linkStyleNavLogin" to="/connexion">
-      <i className="fa-solid fa-right-to-bracket"></i>
-      <p>Se connecter</p>
-      </Link>
+        <Link className="linkStyleNavLogin" to="/connexion">
+          <i className="fa-solid fa-right-to-bracket"></i>
+          <p>Se connecter</p>
+        </Link>
       </div>
       <div className="searchIconDiv">
         <i className="fa-solid fa-magnifying-glass" onClick={handleSearchIconClick}></i>
       </div>
       <div className="searchBarAppearnav" onBlur={handleSearchBarBlur}>
-        {showSearchComponent && (
-          <SearchBar inputRef={searchInputRef} onSearch={handleSearch} />
+        <SearchBar onSearch={handleSearch} inputRef={searchInputRef} />
+        {filteredPizzas?.length > 0 && (
+          <div className="searchResults">
+            {filteredPizzas?.map(pizza => (
+              <div
+                key={pizza.name}
+                className="searchResultItem"
+               onClick={(event) => handlePizzaClick(event, pizza)}
+              >
+                <img src={pizza.imageUrl} alt={pizza.name} className="pizzaImage" />
+                <div className="pizzaDetails">
+                  <h3>{pizza.name}</h3>
+                  <p>{pizza.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         )}
       </div>
     </nav>

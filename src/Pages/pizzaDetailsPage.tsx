@@ -10,32 +10,18 @@ import Footer from "../Components/footer";
 import FooterLinks from "../Components/footerLinks";
 import MenuCards from "../Components/menuCards";
 import { useState } from "react";
+import PizzaDetails from "../Components/pizzaDetails";
 
-const Home: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = useState("Tomato");
 
-  const handleCategoryClick = (category: string) => {
-    setSelectedCategory(category);
-  
-  };
- 
+const PizzaDetailsPage: React.FC = () => {
   return (
     <div>
       <Navbar />
-      <Carousel />
-      <HomeBodyPromo />
-      <OurPizzas
-        selectedCategory={selectedCategory}
-        handleCategoryClick={handleCategoryClick}
-      />
-      <MenuCards selectedCategory={selectedCategory} />
-      <LoyaltyCard />
-      <GoogleMapApi />
-      <Contact />
+      <PizzaDetails />
       <Footer />
       <FooterLinks />
     </div>
   );
 }
 
-export default Home;
+export default PizzaDetailsPage;

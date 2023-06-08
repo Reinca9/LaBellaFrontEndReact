@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Inscription: React.FC = () => {
   return (
     <div className="inscriptionRenderDiv">
-        <div className="inscriptionFlexDiv">
+        <form className="inscriptionFlexDiv" method="POST">
          
           <div className="inscriptionEmailDiv">
             <div>
@@ -12,7 +12,7 @@ const Inscription: React.FC = () => {
               <input id="inscriptionEmailInput"type="email" name="email"required />
             </div>
             <div>
-              <label htmlFor="inscriptionEmailInputRepeat">Confirmer votre email</label>
+              <label htmlFor="inscriptionEmailInputRepeat">Confirmer</label>
               <input type="email" id="inscriptionEmailInputRepeat" name="email-repeat"required/>
             </div >
           </div>
@@ -22,16 +22,16 @@ const Inscription: React.FC = () => {
               <input id="inscriptionPwInput"type="password" name="password"required/>
             </div>
             <div>
-              <label htmlFor="inscriptionPwInputRepeat">Confirmer votre mot de passe</label>
+              <label htmlFor="inscriptionPwInputRepeat">Confirmer</label>
               <input id="inscriptionPwInputRepeat"type="password" name="password-repeat" required/>
             </div>
           </div>
           <div className="inscriptionNameDiv">
-            <div >
+            <div className="lastNameDiv">
               <label htmlFor="yourLastName">Votre Nom</label>
               <input id="yourLastName"type="text" required />
             </div>
-            <div>
+            <div className="firstNameDiv">
               <label htmlFor="yourName">Votre prénom</label>
               <input id="yourName"type="text" required/>
             </div>
@@ -47,7 +47,7 @@ const Inscription: React.FC = () => {
                 <p>Déjà inscrit?</p>
             </Link>
 
-        </div>
+        </form>
     </div>
   );
 }

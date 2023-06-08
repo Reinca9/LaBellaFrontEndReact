@@ -5,6 +5,7 @@ import Menu from "./Pages/lacarte.tsx";
 import Contact from "./Pages/contactPage.tsx";
 import Connexion from "./Pages/connexionPage.tsx";
 import Inscription from "./Pages/inscriptionPage.tsx";
+import PizzaDetails from "./Pages/pizzaDetailsPage.tsx";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/connexion" element={<Connexion />} />
           <Route path="/inscription" element={<Inscription />} />
+          <Route path="/details/:name" element={<PizzaDetails />} />
         </Routes>
       </div>
     </Router>
