@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Link, useNavigate, NavigateOptions } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import bellaLogo from "../picturesFolder/bellaLogo.png";
 import 'tailwindcss/tailwind.css';
 import SearchBar from "./searchBar";
@@ -10,15 +10,12 @@ function Navbar() {
   const [searchValue, setSearchValue] = useState("");
   const [filteredPizzas, setFilteredPizzas] = useState<Pizza[]>([]);
   const navigate = useNavigate();
-
-  const handleSearchIconClick = () => {
-    // Do nothing
-  };
+  const [isMenuOpen, setMenuOpen] = useState(false);
 
   const handleSearchBarBlur = () => {
-    if (filteredPizzas.length > 0) {
+    setTimeout(() => {
       setFilteredPizzas([]);
-    }
+    }, 200); // Delay closing the search results to allow time for the click event to trigger
   };
 
   const handleSearch = (searchValue: string) => {
@@ -38,11 +35,14 @@ function Navbar() {
       searchInputRef.current.focus();
     }
   }, []);
+
   const handlePizzaClick = (event: React.MouseEvent, pizza: Pizza) => {
-    event.stopPropagation();
     navigate(`/details/${encodeURIComponent(pizza.name)}`, { replace: true });
   };
-  
+
+  const handleMenuToggle = () => {
+    setMenuOpen(!isMenuOpen);
+  };
 
   return (
     <nav className="navbar">
@@ -51,35 +51,37 @@ function Navbar() {
           <img className="bellaLogo" src={bellaLogo} alt="Logo Bella" />
         </Link>
       </div>
-      <div>
-        <Link className="linkStyleNav" to="/home">
-          Accueil
-        </Link>
+      <div className={`menu ${isMenuOpen ? 'open' : ''}`}>
+        <div>
+          <Link className="linkStyleNav" to="/home">
+            Accueil
+          </Link>
+        </div>
+        <div>
+          <Link className="linkStyleNav" to="/la-carte">
+            Menu
+          </Link>
+        </div>
+        <div>
+          <Link className="linkStyleNav" to="/contact">
+            Contact
+          </Link>
+        </div>
+        <div className="phoneAndNumber">
+          <Link className="linkPhoneAndNumber" to="/connexion">
+            <i className="fa-solid fa-phone"> </i>
+            <p>06 01 02 03 04</p>
+          </Link>
+        </div>
+        <div className="connexionLogoetText">
+          <Link className="linkStyleNavLogin" to="/connexion">
+            <i className="fa-solid fa-right-to-bracket"></i>
+            <p>Se connecter</p>
+          </Link>
+        </div>
       </div>
-      <div>
-        <Link className="linkStyleNav" to="/la-carte">
-          Menu
-        </Link>
-      </div>
-      <div>
-        <Link className="linkStyleNav" to="/contact">
-          Contact
-        </Link>
-      </div>
-      <div className="phoneAndNumber">
-        <Link className="linkPhoneAndNumber" to="/connexion">
-          <i className="fa-solid fa-phone"> </i>
-          <p>06 01 02 03 04</p>
-        </Link>
-      </div>
-      <div className="connexionLogoetText">
-        <Link className="linkStyleNavLogin" to="/connexion">
-          <i className="fa-solid fa-right-to-bracket"></i>
-          <p>Se connecter</p>
-        </Link>
-      </div>
-      <div className="searchIconDiv">
-        <i className="fa-solid fa-magnifying-glass" onClick={handleSearchIconClick}></i>
+      <div className="burgerIconDiv" onClick={handleMenuToggle}>
+        <i className={`fa-solid fa-bars ${isMenuOpen ? 'open' : ''}`}></i>
       </div>
       <div className="searchBarAppearnav" onBlur={handleSearchBarBlur}>
         <SearchBar onSearch={handleSearch} inputRef={searchInputRef} />
@@ -89,7 +91,7 @@ function Navbar() {
               <div
                 key={pizza.name}
                 className="searchResultItem"
-               onClick={(event) => handlePizzaClick(event, pizza)}
+                onClick={(event) => handlePizzaClick(event, pizza)}
               >
                 <img src={pizza.imageUrl} alt={pizza.name} className="pizzaImage" />
                 <div className="pizzaDetails">
@@ -106,3 +108,4 @@ function Navbar() {
 }
 
 export default Navbar;
+

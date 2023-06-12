@@ -17,39 +17,22 @@ code {
 .navbar{
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: rgb(192, 10, 39);
   padding: 2%;
   height: 100px;
   
 }
-.navbar div {
-  margin-left: 2%;
-  align-items: center;
-}
 
 
-.phoneAndNumber{
+.menu{
   display: flex;
-  color: white;
-  margin-top: 0%;
-  font-weight: lighter;
-  margin-right: 6%;
-  width: 20%;
-  height: 35px;
-
- 
-}
-.phoneAndNumber i{
-  font-size: 200%;
-  margin-right: 4%;
- 
+  margin-left: -20%;
+  
 }
 .linkPhoneAndNumber{
   width: 100%;
   display: flex;
-}
-.laBellaLogo{
-  margin-top: -1%;
 }
 .phoneAndNumber .linkPhoneAndNumber p{
   font-size: 110%;
@@ -519,7 +502,6 @@ box-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
     margin-left: 12.5%;
   }
   .searchBar{
-    width: 80%;
     background-color: white;
     color: rgb(216, 216, 216);
     margin-left: 10%;
@@ -527,7 +509,6 @@ box-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
     border-radius: 10px;
     border: solid black 2px;
     padding: 1%;
-    margin-top: 2%;
     font-size: 200%;
     border: none;
     &:focus {
@@ -790,4 +771,128 @@ margin-left: 30%;
   width: 100px;
   height: 80px;
   border-radius: 5%;
+}
+.pizzaDetails{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5%;
+}
+.pizzaDetails h2{
+  font-weight: bold;
+  margin-bottom: 2%;
+  color: rgb(240, 14, 52);
+  font-size: 300%;
+}
+.pizzaImageDetails{
+  border-radius: 15px;
+  width: 35%;
+  height: 400px;
+}
+.pizzaInfoDetails{
+  width:75%;
+  margin-top: 2%;
+  display: flex;
+  flex-direction: column;
+}
+.infoPizzaTitles{
+  color: rgb(0, 161, 73);
+  font-weight: bold;
+  font-size: 150%;
+}
+.pizzaInfosFlexDiv{
+  display: flex;
+  align-items: center;
+  margin-left: 27%;
+}
+.pizzaDetailsValues{
+  font-size: 150%;
+  margin-left: 5%;
+}
+#fullInfosDiv{
+  margin-top: -5%;
+}
+#fullInfosDiv .pizzaDetailsValues{
+  margin-top: 10%;
+}
+@media (max-width: 1290px) {
+ .phoneAndNumber{
+  display: none;
+  
+ }
+ .searchIconDiv{
+  margin-right: 7%;
+ }
+ .searchIconDiv {
+  margin-top: 0%;
+ }
+ .searchBarAppearnav{
+  margin-top: 1.5%;
+ }
+ .carousel h2{
+  margin-top: -50%;
+  margin-left: 0%;
+ }
+ .carousel h1{
+  display: none;
+ }
+ .linkStyleNav{
+  display: none;
+ }
+
+ 
+
+
+}
+@media (max-width: 1072px) {
+  .menu {
+    display: none;
+  }
+
+  .burgerIconDiv {
+    display: block;
+  }
+}
+
+@media (min-width: 1073px) {
+  .menu {
+    display: flex;
+  }
+
+  .burgerIconDiv {
+    display: none;
+  }
+}
+
+.burgerIconDiv.open {}
+
+ 
+
+.menu.open {
+}
+.linkPhoneAndNumber{
+  display: flex;
+  width: 200%;
+  margin-right: 6%;
+}
+
+.phoneAndNumber{
+  display: flex;
+  color: white;
+  margin-top: 0%;
+  font-weight: lighter;
+  margin-right: 6%;
+  width: 200%;
+  height: 35px;
+  margin-left: 10%;
+}
+.phoneAndNumber i{
+  font-size: 200%;
+  margin-right: 4%;
+ 
+}
+.linkPhoneAndNumber p{
+  width: 200%;
+ 
 }

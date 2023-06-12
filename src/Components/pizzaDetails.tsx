@@ -18,14 +18,12 @@ const PizzaDetails: React.FC = () => {
 
   return (
     <div className="pizzaDetails">
-      <div className="pizzaImageContainer">
-        <img src={pizza.imageUrl} alt={pizza.name} className="pizzaImage" />
-      </div>
-      <div className="pizzaInfo">
         <h2>{pizza.name}</h2>
-        <p>{pizza.description}</p>
-        <p>Price: ${pizza.price}</p>
-        <p>Base: {pizza.base}</p>
+        <img src={pizza.imageUrl} alt={pizza.name} className="pizzaImageDetails" />
+      <div className="pizzaInfoDetails">
+        <div className="pizzaInfosFlexDiv"><p className="infoPizzaTitles">Price:</p> <p className="pizzaDetailsValues">{pizza.price}€</p></div>
+        <div className="pizzaInfosFlexDiv"><p className="infoPizzaTitles">Base:</p> <p className="pizzaDetailsValues">{pizza.base}</p></div>
+        <div id="fullInfosDiv" className="pizzaInfosFlexDiv"><p className="infoPizzaTitles">Composition complète : </p> <p className="pizzaDetailsValues">{pizza.fullDescription}</p></div>
       </div>
     </div>
   );
