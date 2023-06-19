@@ -2,15 +2,13 @@ import React from "react";
 import Navbar from "../Components/navbar";
 import Footer from "../Components/footer";
 import FooterLinks from "../Components/footerLinks";
-import Inscription from "../Components/inscription";
+import RegistrationForm from "../Components/inscription";
 
 const InscriptionPage: React.FC = () => {
-
- 
   return (
     <div>
       <Navbar />
-      <Inscription/>
+      <RegistrationForm />
       <Footer />
       <FooterLinks />
     </div>
