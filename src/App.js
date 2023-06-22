@@ -4,7 +4,7 @@ import Home from "./Pages/home.tsx";
 import Menu from "./Pages/lacarte.tsx";
 import Contact from "./Pages/contactPage.tsx";
 import Connexion from "./Pages/connexionPage.tsx";
-import Inscription from "./Pages/inscriptionPage.tsx";
+import RegisterPage from "./Pages/registerPage.tsx";
 import PizzaDetails from "./Pages/pizzaDetailsPage.tsx";
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
           <Route path="/la-carte" element={<Menu />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/connexion" element={<Connexion />} />
-          <Route path="/inscription" element={<Inscription />} />
+          <Route path="/register" element={<RegisterPage />} />
           <Route path="/details/:name" element={<PizzaDetails />} />
         </Routes>
       </div>

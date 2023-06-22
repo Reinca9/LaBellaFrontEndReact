@@ -2,9 +2,9 @@ import React from "react";
 import Navbar from "../Components/navbar";
 import Footer from "../Components/footer";
 import FooterLinks from "../Components/footerLinks";
-import RegistrationForm from "../Components/inscription";
+import RegistrationForm from "../Components/register";
 
-const InscriptionPage: React.FC = () => {
+const RegisterPage: React.FC = () => {
   return (
     <div>
       <Navbar />
@@ -15,4 +15,4 @@ const InscriptionPage: React.FC = () => {
   );
 }
 
-export default InscriptionPage;
+export default RegisterPage;

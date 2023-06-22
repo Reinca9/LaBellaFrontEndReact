@@ -584,6 +584,11 @@ margin-left: 30%;
   margin: 5% 2% 2% 20%;
   
  }
+ .connexionFlexDiv form{
+  display: flex;
+ flex-direction: column;
+  
+ }
  .connexionRenderDiv{
   padding: 1%;
   border-radius: 50px;
@@ -896,4 +901,11 @@ margin-left: 30%;
 .linkPhoneAndNumber p{
   width: 200%;
  
+}
+#mailExistAlready{
+  font-size: 25px;
+  color: rgb(255, 0, 0);
+  font-weight: bold;
+
+  margin-top: -4%;
 }
