@@ -871,12 +871,6 @@ margin-left: 30%;
   }
 }
 
-.burgerIconDiv.open {}
-
- 
-
-.menu.open {
-}
 .linkPhoneAndNumber{
   display: flex;
   width: 200%;
@@ -897,6 +891,11 @@ margin-left: 30%;
   font-size: 200%;
   margin-right: 4%;
  
+}
+#pwIncorrect{
+  color: red;
+  font-size: 25px;
+  font-weight: bold;
 }
 .linkPhoneAndNumber p{
   width: 200%;
