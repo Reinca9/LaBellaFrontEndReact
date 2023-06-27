@@ -151,7 +151,7 @@ const Inscription: React.FC = () => {
         <button id="registerButton" type="submit">
           S'inscrire
         </button>
-        {errorMessage && <p id="mailExistAlready">{errorMessage}</p>}
+        {errorMessage && <p className="mailExistAlready">{errorMessage}</p>}
       </form>
     </div>
   );
