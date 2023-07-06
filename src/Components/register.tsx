@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Inscription: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -11,8 +13,6 @@ const Inscription: React.FC = () => {
     lastName: "",
     phoneNumber: "",
   });
-
-  const [errorMessage, setErrorMessage] = useState("");
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -41,16 +41,27 @@ const Inscription: React.FC = () => {
         phoneNumber: "",
       });
 
+      // Show success toast notification
+      toast.success("Registration successful");
     } catch (error) {
       console.error("Error registering user:", error);
+
       if (axios.isAxiosError(error) && error.response && error.response.data && error.response.data.error) {
-        setErrorMessage(error.response.data.error as string);
+        const errorMessage = error.response.data.error as string;
+
+        if (errorMessage === "Email already exists") {
+          // Show custom toast notification for existing email error
+          toast.error("Email already exists");
+        } else {
+          // Show generic error toast notification
+          toast.error(errorMessage);
+        }
       } else {
-        setErrorMessage("Votre e-mail existe déjà ! ");
+        // Show generic error toast notification
+        toast.error("An error occurred during registration");
       }
     }
   };
-
   return (
     <div className="inscriptionRenderDiv">
       <form className="inscriptionFlexDiv" onSubmit={handleSubmit}>
@@ -151,7 +162,8 @@ const Inscription: React.FC = () => {
         <button id="registerButton" type="submit">
           S'inscrire
         </button>
-        {errorMessage && <p className="mailExistAlready">{errorMessage}</p>}
+
+
       </form>
     </div>
   );

@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Connexion: React.FC = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: ""
   });
-  const [errorMessage, setErrorMessage] = useState("");
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -18,26 +19,30 @@ const Connexion: React.FC = () => {
     }));
   };
 
- const handleSubmit = async (event: React.FormEvent) => {
-  event.preventDefault();
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
 
-  try {
-    const response = await axios.post("http://localhost:3000/connexion", formData);
-    console.log(response.data);
+    try {
+      const response = await axios.post("http://localhost:3000/connexion", formData);
+      console.log(response.data);
 
-    // Reset form data
-    setFormData({
-      email: "",
-      password: ""
-    });
+      // Reset form data
+      setFormData({
+        email: "",
+        password: ""
+      });
 
-    // Redirect to "/home" on success
-   window.location.href = "/home";
-} catch (error) {
-  console.error("Error logging in:", error);
-  setErrorMessage((error as Error).message || "An error occurred during login");
-}
-};
+      // Show success toast notification
+      toast.success("Login successful");
+
+      // Redirect to "/home" on success
+      window.location.href = "/home";
+    } catch (error) {
+      console.error("Error logging in:", error);
+      // Show error toast notification
+      toast.error("An error occurred during login");
+    }
+  };
 
   return (
     <div className="connexionRenderDiv">
@@ -70,7 +75,9 @@ const Connexion: React.FC = () => {
           <p>Mot de passe oublié?</p>
           <p>Pas encore inscrit?</p>
         </Link>
-        {errorMessage && <p id="pwIncorrect">{errorMessage}</p>}
+
+        <ToastContainer /> {/* Add the ToastContainer component to the root level of your app */}
+
       </div>
     </div>
   );
