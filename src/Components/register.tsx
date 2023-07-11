@@ -26,11 +26,14 @@ const Inscription: React.FC = () => {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     console.log("Submitting form");
-
+  
+    // Exclude confirmPassword and confirmEmail from the form data
+    const { confirmPassword, confirmEmail, ...formDataToSend } = formData;
+  
     try {
-      const response = await axios.post("http://localhost:3000/register", formData);
+      const response = await axios.post("http://localhost:3000/register", formDataToSend);
       console.log(response.data);
-
+  
       setFormData({
         email: "",
         password: "",
@@ -40,15 +43,15 @@ const Inscription: React.FC = () => {
         lastName: "",
         phoneNumber: "",
       });
-
+  
       // Show success toast notification
       toast.success("Registration successful");
     } catch (error) {
       console.error("Error registering user:", error);
-
+  
       if (axios.isAxiosError(error) && error.response && error.response.data && error.response.data.error) {
         const errorMessage = error.response.data.error as string;
-
+  
         if (errorMessage === "Email already exists") {
           // Show custom toast notification for existing email error
           toast.error("Email already exists");
