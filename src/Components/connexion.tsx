@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 const Connexion: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -21,29 +20,30 @@ const Connexion: React.FC = () => {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-
+  
     try {
       const response = await axios.post("http://localhost:3000/connexion", formData);
       console.log(response.data);
-
+  
       // Reset form data
       setFormData({
         email: "",
         password: ""
       });
-
+  
       // Show success toast notification
       toast.success("Login successful");
-
+  
       // Redirect to "/home" on success
       window.location.href = "/home";
     } catch (error) {
       console.error("Error logging in:", error);
+  
       // Show error toast notification
-      toast.error("An error occurred during login");
+      const errorMessage = (error as Error).message;
+      toast.error(errorMessage || "An error occurred during login");
     }
   };
-
   return (
     <div className="connexionRenderDiv">
       <div className="connexionFlexDiv">
@@ -75,9 +75,6 @@ const Connexion: React.FC = () => {
           <p>Mot de passe oublié?</p>
           <p>Pas encore inscrit?</p>
         </Link>
-
-        <ToastContainer /> {/* Add the ToastContainer component to the root level of your app */}
-
       </div>
     </div>
   );

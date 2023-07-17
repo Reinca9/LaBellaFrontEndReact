@@ -822,10 +822,26 @@ margin-left: 30%;
 #fullInfosDiv .pizzaDetailsValues{
   margin-top: 10%;
 }
-@media (max-width: 1290px) {
- .phoneAndNumber{
+@media (max-width: 1550px) {
+  .phoneNumber{
+    display: none;
+    width: 10%;
+    
+   }
+}
+@media (max-width: 1300px) {
+ .phoneNumber{
   display: none;
+  width: 10%;
   
+ }
+ .linkStyleNavLogin{
+  margin-left: -200%;
+ }
+
+ #seConnecter{
+  display:none;
+ 
  }
  .searchIconDiv{
   margin-right: 7%;

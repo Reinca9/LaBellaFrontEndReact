@@ -68,15 +68,15 @@ function Navbar() {
           </Link>
         </div>
         <div className="phoneAndNumber">
-          <Link className="linkPhoneAndNumber" to="/connexion">
+          <Link className="linkPhoneAndNumber" to="/home">
             <i className="fa-solid fa-phone"> </i>
-            <p>06 01 02 03 04</p>
+            <p className="phoneNumber">06 01 02 03 04</p>
           </Link>
         </div>
         <div className="connexionLogoetText">
           <Link className="linkStyleNavLogin" to="/connexion">
-            <i className="fa-solid fa-right-to-bracket"></i>
-            <p>Se connecter</p>
+            <i id="connexionLogo"className="fa-solid fa-right-to-bracket"></i>
+            <p id="seConnecter">Se connecter</p>
           </Link>
         </div>
       </div>
