@@ -6,12 +6,17 @@ import reportWebVitals from "./reportWebVitals";
 import "tailwindcss/tailwind.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import store from "./store";
+import authReducer from "./redux/auth/authReducer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+const store = createStore(authReducer);
 root.render(
   <React.StrictMode>
-    <App />
-    <ToastContainer />
+    <Provider store={store}>
+      <App />
+      <ToastContainer />
+    </Provider>
   </React.StrictMode>
 );
 
