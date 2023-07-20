@@ -27,7 +27,7 @@ const Inscription: React.FC = () => {
     event.preventDefault();
     console.log("Submitting form");
   
-    // Exclude confirmPassword and confirmEmail from the form data
+    
     const { confirmPassword, confirmEmail, ...formDataToSend } = formData;
   
     try {
@@ -44,7 +44,7 @@ const Inscription: React.FC = () => {
         phoneNumber: "",
       });
   
-      // Show success toast notification
+      
       toast.success("Registration successful");
     } catch (error) {
       console.error("Error registering user:", error);
@@ -53,14 +53,14 @@ const Inscription: React.FC = () => {
         const errorMessage = error.response.data.error as string;
   
         if (errorMessage === "Email already exists") {
-          // Show custom toast notification for existing email error
+         
           toast.error("Email already exists");
         } else {
-          // Show generic error toast notification
+         
           toast.error(errorMessage);
         }
       } else {
-        // Show generic error toast notification
+      
         toast.error("An error occurred during registration");
       }
     }

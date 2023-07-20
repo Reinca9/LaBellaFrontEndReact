@@ -1,21 +1,31 @@
 import { createStore, Store } from 'redux';
 
-// Define your initial state
-interface AppState {
+
+export interface AppState {
   isConnected: boolean;
+  auth: {
+    token: string | null;
+    errorMessage: string | null;
+  };
 }
 
 const initialState: AppState = {
   isConnected: false,
+  auth: {
+    token: null,
+    errorMessage: null
+  }
 };
+export interface RootState {
+  auth: AppState;
+}
 
-// Define your action types
 enum ActionType {
   LOGIN_SUCCESS = 'LOGIN_SUCCESS',
   LOGOUT = 'LOGOUT',
 }
 
-// Define your action interfaces
+
 interface LoginSuccessAction {
   type: ActionType.LOGIN_SUCCESS;
 }
@@ -24,10 +34,10 @@ interface LogoutAction {
   type: ActionType.LOGOUT;
 }
 
-// Define your union type for all actions
+
 type AppAction = LoginSuccessAction | LogoutAction;
 
-// Define your reducer function
+
 const reducer = (state: AppState = initialState, action: AppAction): AppState => {
   switch (action.type) {
     case ActionType.LOGIN_SUCCESS:
@@ -45,7 +55,7 @@ const reducer = (state: AppState = initialState, action: AppAction): AppState =>
   }
 };
 
-// Create the Redux store
-const store: Store<AppState, AppAction> = createStore(reducer);
+
+const store: Store<RootState, AppAction> = createStore(reducer);
 
 export default store;

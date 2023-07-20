@@ -1,28 +1,23 @@
-import React, { useRef, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import bellaLogo from '../picturesFolder/bellaLogo.png';
+import React, { useRef, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import bellaLogo from "../picturesFolder/bellaLogo.png";
 import 'tailwindcss/tailwind.css';
-import SearchBar from './searchBar';
-import { Pizza, pizzaList } from '../ObjectDB/Pizza';
-import { RootState } from '../store';
-import { connect, ConnectedProps } from 'react-redux';
+import SearchBar from "./searchBar";
+import { Pizza, pizzaList } from "../ObjectDB/Pizza";
+import { connect } from 'react-redux';
+import { RootState } from "../store";
 
-const mapStateToProps = (state: RootState) => ({
-  isConnected: !!state.auth.token,
-});
+interface NavbarProps {
+  isConnected: boolean;
+}
 
-const connector = connect(mapStateToProps);
-
-type PropsFromRedux = ConnectedProps<typeof connector>;
-
-type NavbarProps = PropsFromRedux;
-
-const Navbar: React.FC<NavbarProps> = ({ isConnected }) => {
-  const searchInputRef = useRef<HTMLInputElement>(null);
-  const navigate = useNavigate();
-  const [isMenuOpen, setMenuOpen] = useState(false);
-  const [searchValue, setSearchValue] = useState('');
+function Navbar({ isConnected }: NavbarProps) {
+  const searchInputRef = useRef<HTMLInputElement | null>(null);
+  const [searchValue, setSearchValue] = useState<string>("");
   const [filteredPizzas, setFilteredPizzas] = useState<Pizza[]>([]);
+
+  const navigate = useNavigate();
+  const [isMenuOpen, setMenuOpen] = useState<boolean>(false);
 
   const handleSearchBarBlur = () => {
     setTimeout(() => {
@@ -32,10 +27,10 @@ const Navbar: React.FC<NavbarProps> = ({ isConnected }) => {
 
   const handleSearch = (searchValue: string) => {
     setSearchValue(searchValue);
-    if (searchValue.trim() === '') {
+    if (searchValue.trim() === "") {
       setFilteredPizzas([]);
     } else {
-      const filteredPizzas = pizzaList.filter((pizza) =>
+      const filteredPizzas = pizzaList.filter((pizza: Pizza) =>
         pizza.name.toLowerCase().includes(searchValue.toLowerCase())
       );
       setFilteredPizzas(filteredPizzas);
@@ -60,4 +55,69 @@ const Navbar: React.FC<NavbarProps> = ({ isConnected }) => {
     <nav className="navbar">
       <div className="laBellaLogo">
         <Link className="bellaLogoLink" to="/home">
-          <img className="bellaLogo
+          <img className="bellaLogo" src={bellaLogo} alt="Logo Bella" />
+        </Link>
+      </div>
+      <div className={`menu ${isMenuOpen ? 'open' : ''}`}>
+        <div>
+          <Link className="linkStyleNav" to="/home">
+            Accueil
+          </Link>
+        </div>
+        <div>
+          <Link className="linkStyleNav" to="/la-carte">
+            Menu
+          </Link>
+        </div>
+        <div>
+          <Link className="linkStyleNav" to="/contact">
+            Contact
+          </Link>
+        </div>
+        <div className="phoneAndNumber">
+          <Link className="linkPhoneAndNumber" to="/home">
+            <i className="fa-solid fa-phone"> </i>
+            <p className="phoneNumber">06 01 02 03 04</p>
+          </Link>
+        </div>
+        {!isConnected && (
+          <div className="connexionLogoetText">
+            <Link className="linkStyleNavLogin" to="/connexion">
+              <i id="connexionLogo" className="fa-solid fa-right-to-bracket"></i>
+              <p id="seConnecter">Se connecter</p>
+            </Link>
+          </div>
+        )}
+      </div>
+      <div className="burgerIconDiv" onClick={handleMenuToggle}>
+        <i className={`fa-solid fa-bars ${isMenuOpen ? 'open' : ''}`}></i>
+      </div>
+      <div className="searchBarAppearnav" onBlur={handleSearchBarBlur}>
+        <SearchBar onSearch={handleSearch} inputRef={searchInputRef} />
+        {filteredPizzas.length > 0 && (
+          <div className="searchResults">
+            {filteredPizzas.map((pizza: Pizza) => (
+              <div
+                key={pizza.name}
+                className="searchResultItem"
+                onClick={(event) => handlePizzaClick(event, pizza)}
+              >
+                <img src={pizza.imageUrl} alt={pizza.name} className="pizzaImage" />
+                <div className="pizzaDetails">
+                  <h3>{pizza.name}</h3>
+                  <p>{pizza.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </nav>
+  );
+}
+
+const mapStateToProps = (state: RootState) => ({
+  isConnected: state.auth?.isConnected ?? false, // Add the conditional check here
+});
+
+export default connect(mapStateToProps)(Navbar);

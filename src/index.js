@@ -1,26 +1,24 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
+import ReactDOM from "react-dom";
+import { createStore, applyMiddleware } from "redux";
+import { Provider } from "react-redux";
+import thunk from "redux-thunk";
+import rootReducer from "./redux/auth/authReducer"; // Remove .ts extension here
 import App from "./App";
-import reportWebVitals from "./reportWebVitals";
-import "tailwindcss/tailwind.css";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import store from "./store";
-import authReducer from "./redux/auth/authReducer";
+import reportWebVitals from "./reportWebVitals";
+import css from "./index.css";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-const store = createStore(authReducer);
-root.render(
+const store = createStore(rootReducer, applyMiddleware(thunk));
+
+ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <App />
       <ToastContainer />
     </Provider>
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

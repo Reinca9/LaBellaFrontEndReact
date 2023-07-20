@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { connect, ConnectedProps } from 'react-redux';
-import { RootState } from '../store';
+import { AppState } from '../store';
 import { loginSuccess, loginFailure } from '../redux/auth/authActions';
 
-const mapStateToProps = (state: RootState) => ({
-  token: state.auth.token,
+const mapStateToProps = (state: AppState) => ({
+  token: state.auth?.token || null, // Use optional chaining and provide a fallback value
 });
 
 const mapDispatchToProps = {
@@ -29,7 +29,6 @@ const Connexion: React.FC<ConnexionProps> = ({ loginSuccess, loginFailure }) => 
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
@@ -38,28 +37,39 @@ const Connexion: React.FC<ConnexionProps> = ({ loginSuccess, loginFailure }) => 
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    try {
+    
+    console.log("login try");
+    
+    try { 
+   
       const response = await axios.post('http://localhost:3000/connexion', formData);
-      const token = response.data.token;
-
+      console.log("login process");
+      
+      
+      const token = response.data?.token; // Use optional chaining
+      
       setFormData({
         email: '',
         password: '',
       });
-
+  
       loginSuccess(token);
-
+      console.log("login success");
       toast.success('Login successful');
-
+  
       window.location.href = '/home';
     } catch (error) {
       console.error('Error logging in:', error);
-
-      const errorMessage = error.response?.data?.error || 'An error occurred during login';
-      loginFailure(errorMessage);
-
-      toast.error(errorMessage);
+      console.log("login fail");
+  
+      if (axios.isAxiosError(error)) {
+        const errorMessage = error.response?.data?.error || 'An error occurred during login';
+        loginFailure(errorMessage);
+        toast.error(errorMessage);
+      } else {
+        loginFailure('An error occurred during login');
+        toast.error('An error occurred during login');
+      }
     }
   };
 

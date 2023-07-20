@@ -3,7 +3,7 @@ import pizzaTrad from "../picturesFolder/pizzaTrad.png";
 import freeLargePizza from "../picturesFolder/freelargepizza.png";
 
 interface HomeBodyPromoProps {
-  // Add any props and their types here if needed
+  
 }
 
 const HomeBodyPromo: React.FC<HomeBodyPromoProps> = () => {
