@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import { connect, ConnectedProps } from 'react-redux';
 import { AppState } from '../store';
 import { loginSuccess, loginFailure } from '../redux/auth/authActions';
+import { useNavigate } from 'react-router-dom';
 
 const mapStateToProps = (state: AppState) => ({
   token: state.auth?.token || null, // Use optional chaining and provide a fallback value
@@ -26,6 +27,8 @@ const Connexion: React.FC<ConnexionProps> = ({ loginSuccess, loginFailure }) => 
     email: '',
     password: '',
   });
+  const navigate = useNavigate();
+  const [loginError, setLoginError] = useState('');
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -52,13 +55,13 @@ const Connexion: React.FC<ConnexionProps> = ({ loginSuccess, loginFailure }) => 
         email: '',
         password: '',
       });
-  
+      
       loginSuccess(token);
-      console.log("login success");
-      toast.success('Login successful');
-  
-      window.location.href = '/home';
+      localStorage.setItem('loginSuccess', 'Connexion réussi!');
+    
+      navigate('/home');
     } catch (error) {
+      setLoginError('Invalid credentials');
       console.error('Error logging in:', error);
       console.log("login fail");
   

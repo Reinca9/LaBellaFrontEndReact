@@ -55,7 +55,5 @@ const reducer = (state: AppState = initialState, action: AppAction): AppState =>
   }
 };
 
-
 const store: Store<RootState, AppAction> = createStore(reducer);
-
 export default store;
